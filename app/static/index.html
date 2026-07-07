@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-[#0F1729] text-slate-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feel FIFA Nexus // KITMAN Operations</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                        mono: ['SFMono-Regular', 'Consolas', 'monospace']
+                    },
+                    colors: {
+                        apple: {
+                            bg: '#F5F5F7',
+                            card: '#FFFFFF',
+                            blue: '#0A84FF',
+                            purple: '#7C3AED',
+                            yellow: '#F5C518',
+                            red: '#FF3B30',
+                            green: '#34C759',
+                            gray: '#8E8E93'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Styles CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="h-full overflow-hidden flex font-sans bg-[#0B0F19] text-slate-100 antialiased select-none">
+
+    <!-- VERTICAL LEFT MENU PANEL (Minimal Apple Style Sidebar) -->
+    <aside class="w-64 border-r border-slate-800 bg-[#111827] flex flex-col shrink-0">
+        <!-- Logo Header -->
+        <div class="p-6 border-b border-slate-800 flex items-center space-x-3 bg-slate-900/50">
+            <div class="w-8 h-8 rounded-lg bg-[#0A84FF] flex items-center justify-center text-white shadow-sm">
+                <i class="fa-solid fa-trophy text-sm"></i>
+            </div>
+            <div>
+                <h1 class="text-sm font-bold tracking-tight text-slate-100 uppercase">FIFA Nexus</h1>
+                <p class="text-[9px] font-semibold text-[#0A84FF] tracking-wider uppercase">KITMAN Operations</p>
+            </div>
+        </div>
+
+        <!-- Navigation Menu Tabs -->
+        <nav class="flex-1 p-5 space-y-2 overflow-y-auto text-xs font-semibold tracking-wide">
+            <!-- Tactical Core (Home) -->
+            <button id="menu-core" class="menu-tab-btn active-tab w-full flex items-center space-x-3 px-4 py-3.5 rounded-lg text-left text-[#0A84FF] bg-[#0A84FF]/10 transition-all duration-200">
+                <i class="fa-solid fa-chart-line text-xs w-4 text-center"></i>
+                <span>Tactical Core</span>
+            </button>
+            <!-- Squad Roster (Zones table) -->
+            <button id="menu-roster" class="menu-tab-btn w-full flex items-center space-x-3 px-4 py-3.5 rounded-lg text-left text-slate-400 hover:text-[#0A84FF] hover:bg-[#0A84FF]/5 transition-all duration-200">
+                <i class="fa-solid fa-list-check text-xs w-4 text-center"></i>
+                <span>Squad Roster</span>
+            </button>
+            <!-- Transit Hub -->
+            <button id="menu-transit" class="menu-tab-btn w-full flex items-center space-x-3 px-4 py-3.5 rounded-lg text-left text-slate-400 hover:text-[#0A84FF] hover:bg-[#0A84FF]/5 transition-all duration-200">
+                <i class="fa-solid fa-train text-xs w-4 text-center"></i>
+                <span>Transit Hub</span>
+            </button>
+            <!-- ADA Detours (Accessibility) -->
+            <button id="menu-accessibility" class="menu-tab-btn w-full flex items-center space-x-3 px-4 py-3.5 rounded-lg text-left text-slate-400 hover:text-[#0A84FF] hover:bg-[#0A84FF]/5 transition-all duration-200">
+                <i class="fa-solid fa-wheelchair text-xs w-4 text-center"></i>
+                <span>ADA Detours</span>
+            </button>
+            <!-- Wayfinding (Signage) -->
+            <button id="menu-wayfinding" class="menu-tab-btn w-full flex items-center space-x-3 px-4 py-3.5 rounded-lg text-left text-slate-400 hover:text-[#0A84FF] hover:bg-[#0A84FF]/5 transition-all duration-200">
+                <i class="fa-solid fa-route text-xs w-4 text-center"></i>
+                <span>Wayfinding Signs</span>
+            </button>
+            <!-- Green Ops (Sustainability) -->
+            <button id="menu-sustainability" class="menu-tab-btn w-full flex items-center space-x-3 px-4 py-3.5 rounded-lg text-left text-slate-400 hover:text-[#0A84FF] hover:bg-[#0A84FF]/5 transition-all duration-200">
+                <i class="fa-solid fa-trash-arrow-up text-xs w-4 text-center"></i>
+                <span>Green Ops</span>
+            </button>
+            <!-- Match Center (Scheduler) -->
+            <button id="menu-matches" class="menu-tab-btn w-full flex items-center space-x-3 px-4 py-3.5 rounded-lg text-left text-slate-400 hover:text-[#0A84FF] hover:bg-[#0A84FF]/5 transition-all duration-200">
+                <i class="fa-solid fa-futbol text-xs w-4 text-center"></i>
+                <span>Match Center</span>
+            </button>
+            <!-- KITMAN inbox (Dedicated chat) -->
+            <button id="menu-chat" class="menu-tab-btn w-full flex items-center space-x-3 px-4 py-3.5 rounded-lg text-left text-slate-400 hover:text-[#0A84FF] hover:bg-[#0A84FF]/5 transition-all duration-200">
+                <i class="fa-solid fa-inbox text-xs w-4 text-center"></i>
+                <span>KITMAN Inbox</span>
+            </button>
+        </nav>
+
+        <!-- Static Sidebar Footer -->
+        <div class="p-5 border-t border-slate-800 bg-slate-900/50 text-[9px] font-semibold text-slate-400 uppercase tracking-wider text-center">
+            VENUE OPERATIONS NODE
+        </div>
+    </aside>
+
+    <!-- RIGHT MAIN WORKSPACE PANEL -->
+    <div class="flex-1 flex flex-col overflow-hidden min-w-0">
+        
+        <!-- Premium Operations Header -->
+        <header class="border-b border-slate-800 bg-[#1E293B] px-8 py-4 flex items-center justify-between shadow-sm shrink-0">
+            <div class="flex items-center space-x-4">
+                <span class="font-bold text-sm tracking-tight text-slate-100 uppercase" id="view-title-label">TACTICAL CORE</span>
+            </div>
+            <!-- Center Ticker -->
+            <div class="hidden lg:flex items-center bg-[#111827] border border-slate-800 rounded-full px-5 py-1.5 w-[28rem] overflow-hidden relative">
+                <div class="text-[#0A84FF] font-bold text-[9px] shrink-0 uppercase tracking-widest mr-3 border-r border-slate-800 pr-3 flex items-center">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#0A84FF] mr-1.5 animate-pulse"></span> TICKER:
+                </div>
+                <div class="ticker-wrapper w-full overflow-hidden relative h-4">
+                    <div class="ticker-content font-mono text-[11px] text-slate-300 absolute whitespace-nowrap" id="system-ticker">
+                        Connecting to telemetry streams...
+                    </div>
+                </div>
+            </div>
+            <!-- Clock, latencies -->
+            <div class="flex items-center space-x-8 text-right text-xs">
+                <div class="hidden sm:block">
+                    <div class="text-slate-400 font-semibold text-[9px] tracking-wider uppercase">MATCH FIXTURE</div>
+                    <div class="text-xs text-slate-100 font-bold uppercase" id="header-match-phase">MEX vs CAN (76')</div>
+                </div>
+                <div class="hidden md:block border-l border-slate-800 pl-8">
+                    <div class="text-slate-400 font-semibold text-[9px] tracking-wider uppercase">SYS LATENCY</div>
+                    <div class="text-xs text-slate-300 font-mono" id="latency-val">LAG: -- ms</div>
+                </div>
+                <div class="border-l border-slate-800 pl-8">
+                    <div class="text-slate-100 font-bold font-mono text-sm" id="clock-display">00:00:00</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dynamic Main Scrollable Workspace -->
+        <div class="flex-1 overflow-hidden p-8 relative">
+
+            <!-- 1. VIEW: TACTICAL CORE (HOME) -->
+            <div id="view-core" class="view-panel h-full flex flex-col gap-6 overflow-hidden">
+                <!-- Metrics Card Row -->
+                <section class="grid grid-cols-1 md:grid-cols-4 gap-6 shrink-0">
+                    <div class="glass-card rounded-2xl p-6 relative overflow-hidden shadow-xs">
+                        <div class="text-slate-900 font-bold text-[9px] tracking-wider uppercase mb-1.5 flex items-center justify-between">
+                            <span>Live Attendance</span>
+                            <i class="fa-solid fa-users text-slate-800 text-xs"></i>
+                        </div>
+                        <div class="text-2xl font-extrabold text-slate-900 flex items-baseline">
+                            <span id="attendance-count">0</span>
+                            <span class="text-xs text-slate-800 font-semibold ml-1.5">/ 80K CAP</span>
+                        </div>
+                        <div class="w-full bg-black/10 h-1.5 rounded-full mt-4 overflow-hidden">
+                            <div class="bg-[#0A84FF] h-full transition-all duration-700" id="attendance-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+ 
+                    <div class="incident-alerts-card rounded-2xl p-6 relative overflow-hidden shadow-xs" id="incidents-card">
+                        <div class="text-slate-950 font-bold text-[9px] tracking-wider uppercase mb-1.5 flex items-center justify-between">
+                            <span>Active Incident Alerts</span>
+                            <i class="fa-solid fa-triangle-exclamation text-slate-950 text-xs"></i>
+                        </div>
+                        <div class="text-2xl font-extrabold text-slate-955 flex items-center" id="incidents-total-wrap">
+                            <span class="px-2 py-0.5 bg-[#1D1D1F] text-[#FF3B30] border border-black rounded mr-2 font-mono" id="incidents-count">0</span>
+                            <span class="text-xs font-bold text-slate-950 uppercase tracking-wide" id="incidents-status-lbl">ALL NOMINAL</span>
+                        </div>
+                        <div class="text-[11px] text-slate-950 font-bold mt-3 truncate" id="incidents-latest-desc">No events reported.</div>
+                    </div>
+ 
+                    <div class="glass-card rounded-2xl p-6 relative overflow-hidden shadow-xs">
+                        <div class="text-slate-900 font-bold text-[9px] tracking-wider uppercase mb-1.5 flex items-center justify-between">
+                            <span>Average Queue</span>
+                            <i class="fa-solid fa-stopwatch text-slate-800 text-xs"></i>
+                        </div>
+                        <div class="text-2xl font-extrabold text-[#0A84FF] flex items-baseline">
+                            <span id="avg-queue-time">0</span>
+                            <span class="text-xs text-slate-855 font-bold ml-1.5">MINUTES</span>
+                        </div>
+                        <div class="text-[11px] text-slate-900 font-semibold mt-3 flex items-center truncate">
+                            <i class="fa-solid fa-check text-emerald-700 mr-1.5" id="queue-trend-icon"></i>
+                            <span id="queue-trend-desc">Nominal flows across gates</span>
+                        </div>
+                    </div>
+ 
+                    <div class="glass-card rounded-2xl p-6 relative overflow-hidden shadow-xs">
+                        <div class="text-slate-900 font-bold text-[9px] tracking-wider uppercase mb-1.5 flex items-center justify-between">
+                            <span>Active Roster</span>
+                            <i class="fa-solid fa-users-gear text-slate-800 text-xs"></i>
+                        </div>
+                        <div class="text-2xl font-extrabold text-emerald-700 flex items-baseline">
+                            <span id="total-staff-count">0</span>
+                            <span class="text-xs text-slate-855 font-bold ml-1.5">PERSONNEL</span>
+                        </div>
+                        <div class="text-[11px] text-slate-900 font-semibold mt-3 flex items-center">
+                            <span class="w-1.5 h-1.5 bg-emerald-700 rounded-full mr-1.5 inline-block"></span>
+                            <span>Roster distribution online</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Core visual split: Stadium Radar View & Alerts/Incident Actions -->
+                <div class="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-6 min-h-0">
+                    <!-- Radar map panel -->
+                    <div class="lg:col-span-7 bg-[#111827] border border-slate-800 rounded-2xl flex flex-col overflow-hidden shadow-xs">
+                        <div class="border-b border-slate-800 bg-[#1E293B] px-6 py-4 flex items-center justify-between">
+                            <span class="font-bold text-xs tracking-tight uppercase text-white flex items-center">
+                                <i class="fa-solid fa-circle-dot text-[#F5C518] mr-2 text-xs"></i> Stadium Radar Blueprint
+                            </span>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-[9px] font-bold text-slate-300 uppercase tracking-widest">Active Scan</span>
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#F5C518] animate-pulse"></span>
+                            </div>
+                        </div>
+                        <div class="flex-1 flex flex-col items-center justify-between p-6 relative overflow-hidden bg-[#111827]">
+                            <div class="flex-1 flex items-center justify-center w-full min-h-0">
+                                <div class="relative w-full max-w-[300px] aspect-square flex items-center justify-center">
+                                    <canvas id="radar-canvas" width="400" height="400" class="absolute w-full h-full bg-transparent"></canvas>
+                                </div>
+                            </div>
+                            <div class="w-full bg-[#0B0F19] border border-slate-800 rounded-xl p-3 text-[11px] flex items-center justify-between shadow-md text-white font-mono mt-4 shrink-0" id="radar-hover-info">
+                                <span class="text-slate-400 uppercase">HOVER NODE TO INSPECT METRICS</span>
+                                <span class="text-[#F5C518] font-bold uppercase tracking-wider text-[9px]">KITMAN TACTICAL</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Side Core alerts column -->
+                    <div class="lg:col-span-5 bg-[#F5C518] border-2 border-[#7C3AED] border-t-4 border-t-[#7C3AED] rounded-2xl flex flex-col overflow-hidden shadow-xs">
+                        <div class="border-b border-[#7C3AED]/30 px-6 py-4 flex items-center justify-between">
+                            <span class="font-bold text-xs tracking-tight uppercase text-slate-950 flex items-center">
+                                <i class="fa-solid fa-bolt text-[#7C3AED] mr-2 text-xs"></i> KITMAN AI Advisories
+                            </span>
+                            <button id="refresh-alerts-btn" class="text-[#7C3AED] hover:text-white border border-[#7C3AED]/40 bg-[#7C3AED]/10 hover:bg-[#7C3AED] px-3 py-1.5 rounded-lg text-[9px] font-bold uppercase tracking-wider transition-all shadow-xs">
+                                <i class="fa-solid fa-wand-magic-sparkles mr-1 text-[#7C3AED]"></i> Re-analyse
+                            </button>
+                        </div>
+                        <!-- Alerts lists container -->
+                        <div class="flex-1 p-6 overflow-y-auto space-y-4 bg-slate-50/20" id="alerts-list">
+                            <div class="text-center py-10 text-slate-400 font-sans text-xs">
+                                <i class="fa-solid fa-spinner animate-spin text-[#0A84FF] text-lg mb-2.5 block"></i>
+                                KITMAN IS LOADING ADVISORIES...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lower logs ticker console -->
+                <section class="h-36 glass-card rounded-2xl flex flex-col overflow-hidden shadow-xs shrink-0">
+                    <div class="border-b border-slate-200 px-6 py-2.5 flex items-center justify-between shrink-0">
+                        <span class="font-bold text-[9px] uppercase tracking-widest text-slate-950 flex items-center">
+                            <i class="fa-solid fa-terminal text-emerald-800 mr-2 text-xs"></i> Operations Log Register
+                        </span>
+                    </div>
+                    <div class="flex-1 p-4 font-mono text-[11px] overflow-y-auto text-slate-900 leading-relaxed scrollbar-thin select-text" id="terminal-log">
+                        <!-- Dynamic logs -->
+                    </div>
+                </section>
+            </div>
+
+            <!-- 2. VIEW: SQUAD ROSTER (TELEMETRY GRID) -->
+            <div id="view-roster" class="view-panel hidden h-full flex flex-col glass-card rounded-2xl overflow-hidden shadow-xs">
+                <div class="border-b border-slate-200 px-6 py-4 flex items-center justify-between bg-white shrink-0">
+                    <span class="font-bold text-xs tracking-tight uppercase text-slate-950 flex items-center">
+                        <i class="fa-solid fa-list-check text-[#0A84FF] mr-2"></i> squad roster staffing grid
+                    </span>
+                    <button onclick="toggleShiftModal(true)" class="flex items-center space-x-1.5 font-bold text-[10px] uppercase border border-[#0A84FF]/20 text-white bg-[#0A84FF] hover:bg-blue-700 px-4 py-2 rounded-lg transition-all shadow-xs">
+                        <i class="fa-solid fa-users-gear text-white"></i>
+                        <span>Manual Shift Dispatch</span>
+                    </button>
+                </div>
+                <div class="flex-1 overflow-y-auto min-h-0">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b border-slate-200 bg-slate-50 text-slate-950 text-[10px] font-bold uppercase tracking-wider select-none">
+                                <th class="py-3 px-6">Zone</th>
+                                <th class="py-3 px-2">Type</th>
+                                <th class="py-3 px-2 text-right">Congestion</th>
+                                <th class="py-3 px-2 text-right">Queue</th>
+                                <th class="py-3 px-2 text-center">Staff Count</th>
+                                <th class="py-3 px-2 text-center">Status</th>
+                                <th class="py-3 px-6 text-center">Command</th>
+                            </tr>
+                        </thead>
+                        <tbody id="zones-table-body" class="divide-y divide-slate-100 text-xs text-slate-700">
+                            <!-- Telemetry table rows populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 3. VIEW: TRANSIT HUB (TRANSPORTATION LOGISTICS) -->
+            <div id="view-transit" class="view-panel hidden h-full flex flex-col gap-6 overflow-hidden">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 shrink-0">
+                    <!-- Metro Status summary cards -->
+                    <div class="glass-card rounded-2xl p-6 shadow-xs">
+                        <h4 class="font-bold text-[10px] tracking-wider text-slate-955 uppercase mb-2">Transit network load</h4>
+                        <div class="text-2xl font-extrabold text-slate-900">92.0% <span class="text-xs text-red-700 font-bold ml-2">PEAK</span></div>
+                        <p class="text-[11px] text-slate-900 font-medium mt-2">Active platform bottleneck at Metro East.</p>
+                    </div>
+                    <div class="glass-card rounded-2xl p-6 shadow-xs">
+                        <h4 class="font-bold text-[10px] tracking-wider text-slate-955 uppercase mb-2">Shuttle bus status</h4>
+                        <div class="text-2xl font-extrabold text-slate-900">9m DELAY <span class="text-xs text-slate-900 font-bold ml-2">BUS B</span></div>
+                        <p class="text-[11px] text-slate-900 font-medium mt-2">Corridor traffic delays on western loops.</p>
+                    </div>
+                    <div class="glass-card rounded-2xl p-6 shadow-xs flex items-center">
+                        <button onclick="triggerTransitAdvisor()" class="w-full bg-[#7C3AED] hover:bg-[#6D28D9] text-white font-bold text-[10px] uppercase tracking-wider py-3 rounded-xl transition-all shadow-xs">
+                            <i class="fa-solid fa-wand-magic-sparkles mr-1.5 text-white"></i> Analyse Egress Plan
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-6 min-h-0">
+                    <!-- Transit lines table -->
+                    <div class="lg:col-span-7 glass-card rounded-2xl flex flex-col overflow-hidden shadow-xs">
+                        <div class="border-b border-slate-200 px-6 py-4">
+                            <span class="font-bold text-xs tracking-tight uppercase text-slate-950 flex items-center">
+                                <i class="fa-solid fa-bus text-[#0A84FF] mr-2"></i> Transit Lines Registry
+                            </span>
+                        </div>
+                        <div class="flex-1 overflow-y-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="border-b border-slate-200 bg-slate-50 text-slate-955 text-[10px] font-bold uppercase tracking-wider select-none">
+                                        <th class="py-3 px-6">Transit Line</th>
+                                        <th class="py-3 px-2 text-center">Interval</th>
+                                        <th class="py-3 px-2 text-center">Delay</th>
+                                        <th class="py-3 px-2 text-right">Load %</th>
+                                        <th class="py-3 px-5 text-center">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="transit-table-body" class="divide-y divide-slate-100 text-xs text-slate-700">
+                                    <!-- Populated dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Transit AI output -->
+                    <div class="lg:col-span-5 bg-[#F5C518] border-2 border-[#7C3AED] border-t-4 border-t-[#7C3AED] rounded-2xl flex flex-col overflow-hidden shadow-xs">
+                        <div class="border-b border-[#7C3AED]/30 px-6 py-4">
+                            <span class="font-bold text-xs tracking-tight uppercase text-slate-950 flex items-center">
+                                <i class="fa-solid fa-brain text-[#7C3AED] mr-2"></i> Transit hold advisory
+                            </span>
+                        </div>
+                        <div class="flex-1 p-6 overflow-y-auto space-y-4 text-slate-900 font-semibold text-xs bg-slate-50/20" id="transit-advisor-output">
+                            <p class="text-slate-900 font-semibold italic">Click "Analyse Egress Plan" to query KITMAN for transit strategies.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. VIEW: ACCESSIBILITY (ADA DETOURS) -->
+            <div id="view-accessibility" class="view-panel hidden h-full flex flex-col gap-6 overflow-hidden">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 shrink-0">
+                    <div class="glass-card rounded-2xl p-5 flex flex-col justify-between shadow-xs">
+                        <span class="text-slate-400 font-bold text-[9px] uppercase tracking-wider">Elevator 1 (Gate A)</span>
+                        <div class="flex items-center justify-between mt-3">
+                            <span id="lift-status-1" class="text-xs font-semibold px-2 py-0.5 bg-blue-50 text-blue-600 border border-blue-100 rounded uppercase">Nominal</span>
+                            <button onclick="overrideLift('Elevator 1 (Gate A)', 'Offline')" class="text-[9px] text-[#0A84FF] hover:underline font-semibold">SET FAULT</button>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-2xl p-5 flex flex-col justify-between shadow-xs">
+                        <span class="text-slate-400 font-bold text-[9px] uppercase tracking-wider">Elevator 2 (Gate C)</span>
+                        <div class="flex items-center justify-between mt-3">
+                            <span id="lift-status-2" class="text-xs font-semibold px-2 py-0.5 bg-blue-50 text-blue-600 border border-blue-100 rounded uppercase">Nominal</span>
+                            <button onclick="overrideLift('Elevator 2 (Gate C)', 'Offline')" class="text-[9px] text-[#0A84FF] hover:underline font-semibold">SET FAULT</button>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-2xl p-5 flex flex-col justify-between shadow-xs">
+                        <span class="text-slate-400 font-bold text-[9px] uppercase tracking-wider">Elevator 3 (Sec 102)</span>
+                        <div class="flex items-center justify-between mt-3">
+                            <span id="lift-status-3" class="text-xs font-semibold px-2 py-0.5 bg-red-50 text-red-650 border border-red-155 rounded uppercase">Offline</span>
+                            <button onclick="overrideLift('Elevator 3 (Section 102)', 'Nominal')" class="text-[9px] text-[#0A84FF] hover:underline font-semibold">RESTORE</button>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-2xl p-5 flex flex-col justify-between shadow-xs">
+                        <span class="text-slate-400 font-bold text-[9px] uppercase tracking-wider">Elevator 4 (Sec 204)</span>
+                        <div class="flex items-center justify-between mt-3">
+                            <span id="lift-status-4" class="text-xs font-semibold px-2 py-0.5 bg-blue-50 text-blue-600 border border-blue-100 rounded uppercase">Nominal</span>
+                            <button onclick="overrideLift('Elevator 4 (Section 204)', 'Offline')" class="text-[9px] text-[#0A84FF] hover:underline font-semibold">SET FAULT</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-6 min-h-0">
+                    <!-- ADA Routing instructions -->
+                    <div class="lg:col-span-7 bg-[#F5C518] border-2 border-[#7C3AED] border-t-4 border-t-[#7C3AED] rounded-2xl flex flex-col overflow-hidden shadow-xs">
+                        <div class="border-b border-[#7C3AED]/30 px-6 py-4 flex items-center justify-between shrink-0">
+                            <span class="font-bold text-xs tracking-tight uppercase text-slate-950 flex items-center">
+                                <i class="fa-solid fa-universal-access text-[#7C3AED] mr-2"></i> Accessibility detour routes
+                            </span>
+                            <button onclick="triggerAccessibilityAdvisor()" class="bg-[#7C3AED] hover:bg-[#6D28D9] text-white font-bold text-[10px] uppercase tracking-wider px-3.5 py-1.5 rounded-lg transition-all shadow-xs">
+                                <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> Calculate Step-Free detour
+                            </button>
+                        </div>
+                        <div class="flex-1 p-6 overflow-y-auto text-slate-900 text-xs bg-slate-50/20" id="accessibility-advisor-output">
+                            <p class="text-slate-900 font-semibold italic">Click "Calculate Step-Free detour" to generate a detour script.</p>
+                        </div>
+                    </div>
+
+                    <!-- Info card -->
+                    <div class="lg:col-span-5 glass-card rounded-2xl p-6 flex flex-col justify-between shadow-xs">
+                        <div>
+                            <h4 class="font-bold text-xs tracking-tight uppercase text-slate-955 mb-3">ADA Checklist</h4>
+                            <ul class="space-y-3 text-xs text-slate-900 font-semibold">
+                                <li class="flex items-start space-x-2.5">
+                                    <i class="fa-solid fa-check text-[#0A84FF] mt-0.5"></i>
+                                    <span>Deploy crew at Elevator 3 to coordinate detours.</span>
+                                </li>
+                                <li class="flex items-start space-x-2.5">
+                                    <i class="fa-solid fa-check text-[#0A84FF] mt-0.5"></i>
+                                    <span>Activate digital wheelchair indicators on display nodes.</span>
+                                </li>
+                                <li class="flex items-start space-x-2.5">
+                                    <i class="fa-solid fa-check text-[#0A84FF] mt-0.5"></i>
+                                    <span>Maintain clear pathways along VIP West Ramp structures.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl text-[10px] font-mono text-slate-900 font-semibold">
+                            <span class="text-[#0A84FF] font-bold">INFO:</span> Elevator 3 serves F&B Section 102. When offline, route wheelchair guests to Section 204 links.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. VIEW: WAYFINDING (DIGITAL BILLBOARD SYSTEM) -->
+            <div id="view-wayfinding" class="view-panel hidden h-full flex flex-col gap-6 overflow-hidden">
+                <div class="glass-card rounded-2xl p-6 shrink-0 flex items-center justify-between shadow-xs">
+                    <div>
+                        <h4 class="font-bold text-xs tracking-tight text-slate-950 uppercase">Wayfinding Signage Controller</h4>
+                        <p class="text-xs text-slate-900 font-semibold mt-1">Select a crowded node to generate dynamic routing sign text.</p>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <select id="wayfinding-zone-select" class="bg-white border border-slate-200 text-slate-800 rounded-lg px-3.5 py-2 text-xs font-semibold focus:outline-none focus:border-[#7C3AED]">
+                            <option value="Gate C (VIP & West Entrance)">Gate C (VIP Gate Jam)</option>
+                            <option value="Metro Stadium East">Metro East (Station Platform Overload)</option>
+                            <option value="Section 102 (F&B)">Section 102 (Food Court Crowd)</option>
+                        </select>
+                        <button onclick="triggerWayfindingAdvisor()" class="bg-[#7C3AED] hover:bg-[#6D28D9] text-white font-bold text-[10px] uppercase tracking-wider px-4 py-2.5 rounded-lg transition-all shadow-xs">
+                            <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> Generate Signage Copy
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6 min-h-0">
+                    <!-- Physical Sign Copy -->
+                    <div class="glass-card rounded-2xl flex flex-col overflow-hidden shadow-xs">
+                        <div class="border-b border-slate-200 px-6 py-4 flex justify-between items-center bg-white">
+                            <span class="font-bold text-xs tracking-tight text-slate-955 uppercase">Stadium Billboard Preview</span>
+                            <span class="text-[9px] font-mono text-slate-900 font-bold uppercase">Billboard: Segment A2</span>
+                        </div>
+                        <div class="flex-1 p-8 bg-slate-950 flex flex-col justify-center items-center text-center tracking-wide text-white border border-slate-850 m-6 rounded-2xl relative shadow-inner">
+                            <div class="text-[9px] text-[#0A84FF] font-bold tracking-widest mb-4 uppercase"><i class="fa-solid fa-circle-exclamation mr-1 animate-pulse"></i> LIVE RE-ROUTE SYSTEM</div>
+                            <div class="text-md font-bold max-w-sm leading-relaxed font-sans" id="signboard-mock-text">
+                                SELECT A CONGESTED ZONE AND CLICK "GENERATE SIGNAGE COPY".
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Translation & Advisory -->
+                    <div class="bg-[#F5C518] border-2 border-[#7C3AED] border-t-4 border-t-[#7C3AED] rounded-2xl flex flex-col overflow-hidden shadow-xs">
+                        <div class="border-b border-[#7C3AED]/30 px-6 py-4 bg-[#F5C518]">
+                            <span class="font-bold text-xs tracking-tight uppercase text-slate-955 flex items-center">
+                                <i class="fa-solid fa-language text-[#7C3AED] mr-2 text-xs"></i> Multilingual Rationale & Advice
+                            </span>
+                        </div>
+                        <div class="flex-1 p-6 overflow-y-auto text-slate-900 text-xs bg-slate-50/20 space-y-4" id="wayfinding-advisor-output">
+                            <p class="text-slate-900 font-semibold italic">Wayfinding advisor outputs will be displayed here.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. VIEW: GREEN OPS (SUSTAINABILITY) -->
+            <div id="view-sustainability" class="view-panel hidden h-full flex flex-col gap-6 overflow-hidden">
+                <!-- Smart Bin metrics grid -->
+                <div class="grid grid-cols-2 md:grid-cols-6 gap-4 shrink-0" id="sustainability-bins-grid">
+                    <!-- Populated dynamically -->
+                </div>
+
+                <div class="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-6 min-h-0">
+                    <!-- Clean Up log table -->
+                    <div class="lg:col-span-7 glass-card rounded-2xl flex flex-col overflow-hidden shadow-xs">
+                        <div class="border-b border-slate-200 px-6 py-4">
+                            <span class="font-bold text-xs tracking-tight uppercase text-slate-955 flex items-center">
+                                <i class="fa-solid fa-leaf text-[#0A84FF] mr-2"></i> Smart Waste Bins Registry
+                            </span>
+                        </div>
+                        <div class="flex-1 overflow-y-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="border-b border-slate-200 bg-slate-50 text-slate-955 text-[10px] font-bold uppercase tracking-wider select-none">
+                                        <th class="py-3 px-6">Bin Identifier</th>
+                                        <th class="py-3 px-2 text-right">Fill Level</th>
+                                        <th class="py-3 px-2 text-center">Status</th>
+                                        <th class="py-3 px-6 text-center">Dispatch Command</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="sustainability-table-body" class="divide-y divide-slate-100 text-xs text-slate-700">
+                                    <!-- Populated dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Clean advisory -->
+                    <div class="lg:col-span-5 bg-[#F5C518] border-2 border-[#7C3AED] border-t-4 border-t-[#7C3AED] rounded-2xl flex flex-col overflow-hidden shadow-xs">
+                        <div class="border-b border-[#7C3AED]/30 px-6 py-4 flex justify-between items-center shrink-0">
+                            <span class="font-bold text-xs tracking-tight uppercase text-slate-955 flex items-center">
+                                <i class="fa-solid fa-brain text-[#7C3AED] mr-2"></i> Green Ops cleanup advice
+                            </span>
+                            <button onclick="triggerSustainabilityAdvisor()" class="bg-[#7C3AED] hover:bg-[#6D28D9] text-white font-bold text-[10px] uppercase tracking-wider px-3.5 py-1.5 rounded-lg transition-all shadow-xs">
+                                <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> Run Clean Audit
+                            </button>
+                        </div>
+                        <div class="flex-1 p-6 overflow-y-auto text-slate-900 text-xs bg-slate-50/20 space-y-4" id="sustainability-advisor-output">
+                            <p class="text-slate-900 font-semibold italic">Click "Run Clean Audit" to run compacting logs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. VIEW: MATCH CENTER (SCHEDULER / FIXTURE BOARD) -->
+            <div id="view-matches" class="view-panel hidden h-full flex flex-col glass-card rounded-2xl overflow-hidden shadow-xs">
+                <div class="border-b border-slate-200 px-6 py-4 bg-white shrink-0">
+                    <span class="font-bold text-xs tracking-tight uppercase text-slate-955 flex items-center">
+                        <i class="fa-solid fa-futbol text-[#0A84FF] mr-2"></i> Match Fixtures & Timetable
+                    </span>
+                </div>
+                <div class="flex-1 overflow-y-auto p-6 space-y-4 bg-slate-50/20" id="match-fixtures-container">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+
+            <!-- 8. VIEW: KITMAN INBOX (FULLSCREEN CHAT INTERFACE) -->
+            <div id="view-chat" class="view-panel hidden h-full flex flex-col glass-card rounded-2xl overflow-hidden shadow-xs">
+                <!-- Chat Message Area -->
+                <div id="chat-messages" class="flex-1 overflow-y-auto p-6 space-y-5 text-xs scrollbar-thin select-text bg-slate-50/20">
+                    <!-- Bot Greeting -->
+                    <div class="flex items-start space-x-3 max-w-[90%]">
+                        <div class="w-6 h-6 rounded bg-[#7C3AED] text-white flex items-center justify-center shrink-0 text-[10px] font-bold">K</div>
+                        <div class="chat-bubble-kitman rounded-2xl p-4 relative shadow-xs select-text">
+                            <div class="font-bold text-[9px] text-[#7C3AED] uppercase tracking-widest mb-1.5 flex items-center justify-between">
+                                <span>KITMAN Operations</span>
+                                <span class="text-[8px] font-mono text-slate-900 font-bold uppercase tracking-wider" id="chat-engine-tag">SYSTEM ONLINE</span>
+                            </div>
+                            <p class="leading-relaxed font-sans text-xs text-slate-900">Tactical communications online. Query current stadium entry profiles, mass transport bottlenecks, accessibility detours, sustainability waste indexes, or match schedule details.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Preset Chips -->
+                <div class="px-6 py-4.5 border-t border-slate-200 bg-slate-50 shrink-0">
+                    <div class="text-[9px] font-bold text-slate-955 uppercase tracking-widest mb-2.5">Preset Inquiries</div>
+                    <div class="flex flex-wrap gap-2.5" id="quick-chips">
+                        <button class="quick-chip-btn text-[10px] font-bold uppercase tracking-wider bg-white border border-slate-200 hover:bg-[#0A84FF] text-slate-900 hover:text-white hover:border-[#0A84FF] px-3 py-1.5 rounded-lg transition-all">
+                            <i class="fa-solid fa-magnifying-glass-chart mr-1 text-[#0A84FF]"></i> Busiest Gates?
+                        </button>
+                        <button class="quick-chip-btn text-[10px] font-bold uppercase tracking-wider bg-white border border-slate-200 hover:bg-[#0A84FF] text-slate-900 hover:text-white hover:border-[#0A84FF] px-3 py-1.5 rounded-lg transition-all">
+                            <i class="fa-solid fa-train mr-1 text-[#0A84FF]"></i> Transit status?
+                        </button>
+                        <button class="quick-chip-btn text-[10px] font-bold uppercase tracking-wider bg-white border border-slate-200 hover:bg-[#0A84FF] text-slate-900 hover:text-white hover:border-[#0A84FF] px-3 py-1.5 rounded-lg transition-all">
+                            <i class="fa-solid fa-wheelchair mr-1 text-[#0A84FF]"></i> Elevator status?
+                        </button>
+                        <button class="quick-chip-btn text-[10px] font-bold uppercase tracking-wider bg-white border border-slate-200 hover:bg-[#0A84FF] text-slate-900 hover:text-white hover:border-[#0A84FF] px-3 py-1.5 rounded-lg transition-all">
+                            <i class="fa-solid fa-leaf mr-1 text-[#0A84FF]"></i> Smart Bins status?
+                        </button>
+                        <button class="quick-chip-btn text-[10px] font-bold uppercase tracking-wider bg-white border border-slate-200 hover:bg-[#0A84FF] text-slate-900 hover:text-white hover:border-[#0A84FF] px-3 py-1.5 rounded-lg transition-all">
+                            <i class="fa-solid fa-futbol mr-1 text-[#0A84FF]"></i> Match Center?
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Input area -->
+                <form id="chat-form" class="p-4 border-t border-slate-200 bg-white flex items-center space-x-3 shrink-0">
+                    <input type="text" id="chat-input" placeholder="Ask KITMAN..." autocomplete="off" class="flex-1 bg-white border border-slate-200 hover:border-[#0A84FF] focus:border-[#0A84FF] focus:outline-none rounded-xl px-4 py-3 text-xs placeholder-slate-500 text-slate-900 transition-all shadow-inner">
+                    <button type="submit" class="bg-[#0A84FF] hover:bg-blue-700 text-white font-bold uppercase tracking-wider px-5 py-3 rounded-xl flex items-center justify-center space-x-1.5 transition-all shadow-xs">
+                        <span>Send</span> <i class="fa-solid fa-arrow-up text-[10px]"></i>
+                    </button>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- MODAL 1: REPORT INCIDENT MODAL (Apple Styling) -->
+    <div id="incident-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4 animate-fade-in">
+        <div class="bg-white border border-slate-100 w-full max-w-md rounded-2xl overflow-hidden shadow-2xl">
+            <div class="border-b border-slate-100 bg-slate-50/50 px-6 py-4 flex items-center justify-between">
+                <h3 class="font-bold uppercase tracking-wide text-xs text-slate-800 flex items-center">
+                    <i class="fa-solid fa-triangle-exclamation mr-2 text-[#FF3B30]"></i> Dispatch Incident Event
+                </h3>
+                <button onclick="toggleIncidentModal(false)" class="text-slate-400 hover:text-slate-800 font-sans text-xl">&times;</button>
+            </div>
+            <form id="incident-form" class="p-6 space-y-4 font-sans text-xs text-slate-800">
+                <div class="space-y-1.5">
+                    <label for="inc-zone-select" class="text-slate-500 font-bold uppercase tracking-widest text-[9px]">Venue Segment Node</label>
+                    <select id="inc-zone-select" required class="w-full bg-slate-50 border border-slate-200 focus:border-slate-350 rounded-xl px-3 py-2.5 focus:outline-none text-slate-800">
+                        <option value="Gate A">Gate A (Main Entrance)</option>
+                        <option value="Gate B">Gate B (North Entrance)</option>
+                        <option value="Gate C">Gate C (VIP & West Entrance)</option>
+                        <option value="Gate D">Gate D (South Entrance)</option>
+                        <option value="Section 102 (F&B)">Section 102 F&B Plaza</option>
+                        <option value="Section 204 (F&B)">Section 204 Express Bar</option>
+                        <option value="Metro Stadium East">Metro Station (Stadium East)</option>
+                        <option value="Metro Stadium West">Metro Station (Stadium West)</option>
+                    </select>
+                </div>
+
+                <div class="space-y-1.5">
+                    <label for="inc-severity-select" class="text-slate-500 font-bold uppercase tracking-widest text-[9px]">Log Severity Rating</label>
+                    <select id="inc-severity-select" required class="w-full bg-slate-50 border border-slate-200 focus:border-slate-350 rounded-xl px-3 py-2.5 focus:outline-none text-slate-800">
+                        <option value="Low">Low - System lag reported</option>
+                        <option value="Medium" selected>Medium - Queue bottleneck forming</option>
+                        <option value="High">High - Critical event / Deploy unit</option>
+                    </select>
+                </div>
+
+                <div class="space-y-1.5">
+                    <label for="inc-desc" class="text-slate-500 font-bold uppercase tracking-widest text-[9px]">Event Description note</label>
+                    <textarea id="inc-desc" required placeholder="Describe scanner failures, delayed loops..." class="w-full h-24 bg-slate-50 border border-slate-200 focus:border-slate-350 rounded-xl px-3 py-2.5 focus:outline-none text-slate-800 resize-none"></textarea>
+                </div>
+
+                <div class="flex justify-end space-x-2.5 pt-3 border-t border-slate-100">
+                    <button type="button" onclick="toggleIncidentModal(false)" class="border border-slate-200 hover:bg-slate-50 text-slate-600 font-bold uppercase tracking-wide px-4.5 py-2.5 rounded-xl text-[10px]">Cancel</button>
+                    <button type="submit" class="bg-[#0A84FF] hover:bg-blue-700 text-white font-bold uppercase tracking-wide px-4.5 py-2.5 rounded-xl shadow-xs text-[10px]">Dispatch Log</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 2: MANUAL SHIFT STAFF MODAL (Apple Styling) -->
+    <div id="shift-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4 animate-fade-in">
+        <div class="bg-white border border-slate-100 w-full max-w-md rounded-2xl overflow-hidden shadow-2xl">
+            <div class="border-b border-slate-100 bg-slate-50/50 px-6 py-4 flex items-center justify-between">
+                <h3 class="font-bold uppercase tracking-wide text-xs text-slate-800 flex items-center">
+                    <i class="fa-solid fa-users-gear mr-2 text-[#0A84FF]"></i> Dispatch Squad Shift Re-allocation
+                </h3>
+                <button onclick="toggleShiftModal(false)" class="text-slate-400 hover:text-slate-800 font-sans text-xl">&times;</button>
+            </div>
+            <form id="shift-form" class="p-6 space-y-4 font-sans text-xs text-slate-800">
+                <div class="grid grid-cols-2 gap-3.5">
+                    <div class="space-y-1.5">
+                        <label for="shift-source-select" class="text-slate-500 font-bold uppercase tracking-widest text-[9px]">Source Segment</label>
+                        <select id="shift-source-select" required class="w-full bg-slate-50 border border-slate-200 focus:border-slate-350 rounded-xl px-2.5 py-2 focus:outline-none text-slate-800">
+                            <!-- Populated dynamically -->
+                        </select>
+                    </div>
+
+                    <div class="space-y-1.5">
+                        <label for="shift-target-select" class="text-slate-500 font-bold uppercase tracking-widest text-[9px]">Target Segment</label>
+                        <select id="shift-target-select" required class="w-full bg-slate-50 border border-slate-200 focus:border-slate-350 rounded-xl px-2.5 py-2 focus:outline-none text-slate-800">
+                            <!-- Populated dynamically -->
+                        </select>
+                    </div>
+                </div>
+
+                <div class="space-y-1.5">
+                    <label for="shift-count-input" class="text-slate-500 font-bold uppercase tracking-widest text-[9px]">Number of personnel to shift</label>
+                    <input type="number" id="shift-count-input" min="1" max="15" value="3" required class="w-full bg-slate-50 border border-slate-200 focus:border-slate-350 rounded-xl px-3 py-2.5 focus:outline-none text-slate-800">
+                </div>
+
+                <div class="flex justify-end space-x-2.5 pt-3 border-t border-slate-100">
+                    <button type="button" onclick="toggleShiftModal(false)" class="border border-slate-200 hover:bg-slate-50 text-slate-600 font-bold uppercase tracking-wide px-4.5 py-2.5 rounded-xl text-[10px]">Cancel</button>
+                    <button type="submit" class="bg-[#0A84FF] hover:bg-blue-700 text-white font-bold uppercase tracking-wide px-4.5 py-2.5 rounded-xl shadow-xs text-[10px]">Execute Shift</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Script loading -->
+    <script src="app.js"></script>
+</body>
+</html>

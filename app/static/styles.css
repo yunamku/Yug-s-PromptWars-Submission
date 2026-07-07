@@ -1,0 +1,198 @@
+/* Feel FIFA Nexus - Apple Minimalist Light UI */
+
+/* Google Fonts: Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+html {
+    background-color: #0B0F19 !important;
+}
+
+body {
+    background-color: #0B0F19 !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #F5F5F7;
+}
+
+/* Thin premium scrollbars (macOS style) */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Sidebar Menu Tab Active states */
+.menu-tab-btn {
+    border-left: 3px solid transparent;
+    transition: all 0.20s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-tab-btn:hover {
+    background-color: rgba(10, 132, 255, 0.04);
+}
+
+.menu-tab-btn.active-tab {
+    color: #0A84FF !important; /* Electric Blue accent text */
+    background-color: rgba(10, 132, 255, 0.08);
+    border-left: 3px solid #0A84FF !important; /* Electric Blue accent line */
+}
+
+/* squad roster Table Rows */
+#zones-table-body tr, #transit-table-body tr, #sustainability-table-body tr {
+    border-bottom: 1px solid #E5E5EA !important;
+    transition: background-color 0.15s ease;
+    color: #1D1D1F !important;
+}
+
+#zones-table-body tr:nth-child(even), #transit-table-body tr:nth-child(even), #sustainability-table-body tr:nth-child(even) {
+    background-color: #F8F9FA !important; /* Alternating light gray */
+}
+
+#zones-table-body tr:nth-child(odd), #transit-table-body tr:nth-child(odd), #sustainability-table-body tr:nth-child(odd) {
+    background-color: #FFFFFF !important;
+}
+
+#zones-table-body tr:hover, #transit-table-body tr:hover, #sustainability-table-body tr:hover {
+    background-color: #F1F3F5 !important; /* Light gray hover */
+}
+
+/* Match Center Fixture Cards */
+.fixture-card {
+    background: #FFFFFF !important;
+    border: 1px solid #E5E5EA !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #1D1D1F !important;
+}
+
+.fixture-card:hover {
+    border-color: #C7C7CC;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+}
+
+/* Floating White Cards (Shared Class) */
+.glass-card {
+    background-color: #FFFFFF !important;
+    border: 1px solid #E5E5EA !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+    color: #1D1D1F !important;
+}
+
+.glass-card:hover {
+    border-color: #C7C7CC !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* New separate class for Active Incident Alerts card only */
+.incident-alerts-card {
+    background-color: #FF3B30 !important;
+    border: 1px solid #D32F2F !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+    color: #FFFFFF !important;
+}
+
+.incident-alerts-card:hover {
+    border-color: #B91C1C !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Alert cards left accent borders */
+.alert-card-high {
+    border-left: 4px solid #1D1D1F !important; /* Dark contrast border for high alert on yellow background */
+}
+
+.alert-card-medium, .alert-card-low {
+    border-left: 4px solid #0A84FF !important; /* Electric Blue for nominal/standard alerts */
+}
+
+/* AI-generated advisory cards get purple left borders and comfortable padding */
+.alert-card-ai {
+    border-left: 4px solid #7C3AED !important; /* Purple for AI-generated advisory cards */
+    padding: 1.5rem !important; /* Comfortable spacing (equal to p-6) from card edges */
+}
+
+/* Apple-style Badge System */
+.status-badge-critical {
+    color: #F5C518 !important; /* Warning Yellow text */
+    background-color: #1D1D1F !important; /* Dark background to stand out on yellow card */
+    border: 1px solid #000000 !important;
+}
+
+.status-badge-heavy {
+    color: #FFFFFF !important;
+    background-color: #0A84FF !important; /* Electric Blue badge */
+    border: 1px solid #0066CC !important;
+}
+
+.status-badge-normal {
+    color: #FFFFFF !important;
+    background-color: #0A84FF !important; /* Electric Blue badge */
+    border: 1px solid #0066CC !important;
+}
+
+.status-badge-clear {
+    color: #1D1D1F !important; 
+    background-color: rgba(0, 0, 0, 0.08) !important;
+    border: 1px solid rgba(0, 0, 0, 0.15) !important;
+}
+
+/* iOS-style Chat Inbox Bubbles */
+.chat-bubble-staff {
+    background-color: #E6B500; /* Darker yellow/gold bubble for user messages on yellow background */
+    border: 1px solid #C79C00;
+    color: #1C1C1E;
+    border-radius: 14px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.chat-bubble-kitman {
+    background-color: rgba(124, 58, 237, 0.12) !important; /* Slightly more visible purple on yellow */
+    border: 1px solid rgba(124, 58, 237, 0.3) !important; /* Purple border */
+    color: #1C1C1E;
+    border-radius: 14px;
+    box-shadow: 0 1px 2px rgba(124, 58, 237, 0.01);
+}
+
+/* Scrolling ticker animation */
+@keyframes ticker-scroll {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+.ticker-content {
+    display: inline-block;
+    padding-left: 100%;
+    animation: ticker-scroll 35s linear infinite;
+}
+
+/* Modal fade animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Console logs panel styling */
+#terminal-log {
+    background-color: #FFFFFF;
+    border: 1px solid #E5E5EA;
+    color: #1C1C1E;
+}
